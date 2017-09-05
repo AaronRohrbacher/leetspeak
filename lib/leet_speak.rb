@@ -1,3 +1,4 @@
+require('pry')
 def leet_speak(sentence)
   converters = []
     # if word.chr === "s"
@@ -22,22 +23,18 @@ def leet_speak(sentence)
 
   j = 0
   i = 0
-  array = []
-
-# return word_split[i].length
-
+  word_array = []
   while i < word_split.length
     word = word_split[i].split("")
     i = i + 1
     while j < word.length
       if word[j] === "s" && j > 0
-        word.insert(j - 1, "z")
-        word.slice!(j)
-        puts word.length
-        j = j + 1
+        word[j] = "z"
       end
       j = j + 1
     end
+    word_array.push(word.join)
+    j = 0
   end
-  return word
+  return word_array.join(" ")
 end
